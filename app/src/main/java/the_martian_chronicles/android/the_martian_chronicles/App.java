@@ -3,6 +3,7 @@ package the_martian_chronicles.android.the_martian_chronicles;
 import android.app.Application;
 
 import the_martian_chronicles.android.the_martian_chronicles.dagger2.components.AppComponent;
+import the_martian_chronicles.android.the_martian_chronicles.dagger2.components.DaggerAppComponent;
 import the_martian_chronicles.android.the_martian_chronicles.dagger2.components.WeatherComponent;
 import the_martian_chronicles.android.the_martian_chronicles.dagger2.modules.AppModule;
 import the_martian_chronicles.android.the_martian_chronicles.dagger2.modules.WeatherModule;
