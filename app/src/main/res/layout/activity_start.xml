@@ -4,6 +4,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="the_martian_chronicles.android.the_martian_chronicles.StartActivity"
-    android:id="@+id/container">
+    android:id="@+id/content">
 
 </FrameLayout>

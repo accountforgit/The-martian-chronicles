@@ -12,7 +12,7 @@ import the_martian_chronicles.android.the_martian_chronicles.models.OpenWeather;
 
 public interface WeatherApi {
 
-    @GET("/data/2.5/forecast")
+    @GET("/data/2.5/forecast?q=Almaty,kaz&APPID=03b00a484b0b5477138cd317fed33835&units=metric")
     Single<OpenWeather> getWeather();
 
 

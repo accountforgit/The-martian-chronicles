@@ -22,7 +22,7 @@ public class Weather {
     private Double tempMax;
     @SerializedName("pressure")
     @Expose
-    private Integer pressure;
+    private Double pressure;
 
     public Double getTemp() {
         return temp;
@@ -48,11 +48,11 @@ public class Weather {
         this.tempMax = tempMax;
     }
 
-    public Integer getPressure() {
+    public Double getPressure() {
         return pressure;
     }
 
-    public void setPressure(Integer pressure) {
+    public void setPressure(Double pressure) {
         this.pressure = pressure;
     }
 }
