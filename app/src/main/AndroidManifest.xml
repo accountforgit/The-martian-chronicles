@@ -21,7 +21,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DateActivity"></activity>
+        <activity android:name=".DateActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Date"></activity>
     </application>
 
 </manifest>

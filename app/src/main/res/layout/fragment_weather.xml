@@ -4,7 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="the_martian_chronicles.android.the_martian_chronicles.weatherModule.WeatherFragment">
-    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@string/sorry_by_date"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:id="@+id/holder"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
