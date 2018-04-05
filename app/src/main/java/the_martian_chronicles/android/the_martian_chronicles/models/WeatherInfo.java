@@ -13,6 +13,13 @@ public class WeatherInfo {
     @Expose
     private Integer dt;
 
+    @SerializedName("main")
+    @Expose
+    private Weather main;
+    @SerializedName("dt_txt")
+    @Expose
+    private String dtTxt;
+
     public Integer getDt() {
         return dt;
     }
@@ -36,13 +43,5 @@ public class WeatherInfo {
     public void setDtTxt(String dtTxt) {
         this.dtTxt = dtTxt;
     }
-
-    @SerializedName("main")
-    @Expose
-
-    private Weather main;
-    @SerializedName("dt_txt")
-    @Expose
-    private String dtTxt;
 
 }
