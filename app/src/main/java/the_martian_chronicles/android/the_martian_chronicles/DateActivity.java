@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -18,8 +19,6 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DateActivity extends AppCompatActivity {
-
-    final Calendar calendar = Calendar.getInstance();
     long from;
     long to;
 
@@ -30,30 +29,34 @@ public class DateActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         SharedPreferences preferences = getSharedPreferences("common", MODE_PRIVATE);
         from=preferences.getLong("from",System.currentTimeMillis());
-        to=preferences.getLong("to",System.currentTimeMillis()*2);
+        to=preferences.getLong("to",System.currentTimeMillis()+1000*60*60*24*7);
 
     }
 
     @OnClick(R.id.from)
     void onFromClick(View view){
+        Calendar calendar=getCalendarByDate(from);
         new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year,month,day);
                 from=calendar.getTimeInMillis();
+                Toast.makeText(getApplicationContext(), "Selected ", Toast.LENGTH_SHORT).show();
             }
         },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
 
     @OnClick(R.id.to)
     void onToClick(View view){
+        Calendar calendar=getCalendarByDate(to);
         new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 Calendar calendar = Calendar.getInstance();
                 calendar.set(year,month,day);
                 to=calendar.getTimeInMillis();
+                Toast.makeText(getApplicationContext(), "Selected ", Toast.LENGTH_SHORT).show();
             }
         },calendar.get(Calendar.YEAR),calendar.get(Calendar.MONTH),calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
@@ -64,6 +67,12 @@ public class DateActivity extends AppCompatActivity {
         preferences.edit().putLong("from",from).apply();
         preferences.edit().putLong("to",to).apply();
         finish();
+    }
+
+    public static Calendar getCalendarByDate(long date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(date);
+        return calendar;
     }
 
 }

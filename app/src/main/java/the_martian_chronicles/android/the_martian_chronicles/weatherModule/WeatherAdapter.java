@@ -45,9 +45,9 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.MyViewHo
         Calendar calendar=Calendar.getInstance();
         calendar.setTime(new Date(weatherInfos.get(position).getDt()*1000));
         Weather weather = weatherInfos.get(position).getMain();
-        holder.time.setText(String.format("%s %s",
+        holder.time.setText(String.format("%s %sh",
                 weeks[calendar.get(Calendar.DAY_OF_WEEK)],
-                weatherInfos.get(position).getDtTxt().substring(11, 16)));
+                weatherInfos.get(position).getDtTxt().substring(11, 13)));
         holder.date.setText(weatherInfos.get(position).getDtTxt().substring(0,10));
         holder.pressure.setText(String.format("%s",
                 weather.getPressure()+"hPa"));
